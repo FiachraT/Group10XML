@@ -1,0 +1,55 @@
+<!DOCTYPE car [
+<!ELEMENT car (ClassicCar*,ECar*)>
+<!ELEMENT ClassicCar (car.types,car.brand,car.model,car.licensePlate,car.year,
+car.status,car.location,car.fuelLevel,ClassicCar.fuel,ClassicCar.fuelCard)>
+<!ELEMENT ECar (car.types,car.brand,car.model,car.licensePlate,car.year,
+car.status,car.location,car.fuelLevel,ECar.battery,ECar.chargerCard,ECar.chargerType)>
+
+<!ATTLIST ClassicCar carID CDATA #REQUIRED>
+<!ATTLIST ECar carID CDATA #REQUIRED>
+  <!ELEMENT car.types (#PCDATA)>
+  <!ELEMENT car.brand (#PCDATA)>
+  <!ELEMENT car.model (#PCDATA)>
+  <!ELEMENT car.licensePlate (#PCDATA)>
+  <!ELEMENT car.year (#PCDATA)>
+  <!ELEMENT car.status (#PCDATA)>
+  <!ELEMENT car.location (#PCDATA)>
+  <!ELEMENT car.fuelLevel (#PCDATA)>
+  
+  <!ELEMENT ClassicCar.fuel (#PCDATA)>
+  <!ELEMENT ClassicCar.fuelCard (#PCDATA)>
+  
+  <!ELEMENT ECar.battery (#PCDATA)>
+  <!ELEMENT ECar.chargerCard (#PCDATA)>
+  <!ELEMENT ECar.chargerType (#PCDATA)>
+]>
+
+<car>
+<ClassicCar carID = "001">
+  <car.types> "SUV" </car.types>
+  <car.brand> "Porsche" </car.brand>
+  <car.model> "Cayenne 3.0T"</car.model>
+  <car.licensePlate> "Im License" </car.licensePlate>
+  <car.year> 2004 </car.year>
+  <car.status> "Nice condition, clean and spacious room"</car.status>
+  <car.location> "Dublin City Centre" </car.location>
+  <car.fuelLevel> "23.3 – 26.2 mpg" </car.fuelLevel>
+  <ClassicCar.fuel> "Petrol" </ClassicCar.fuel>
+  <ClassicCar.fuelCard> "001" </ClassicCar.fuelCard>
+</ClassicCar>
+
+<ECar carID = "101">
+  <car.types> "SUV" </car.types>
+  <car.brand> "Tesla" </car.brand>
+  <car.model> "Model Y "</car.model>
+  <car.licensePlate> "Hit Me" </car.licensePlate>
+  <car.year>  2020 </car.year>
+  <car.status> "Battery is in perfect shape" </car.status>
+  <car.location> "Dublin Airport" </car.location>
+  <car.fuelLevel> "17.3 kWh/100km" </car.fuelLevel>
+  <ECar.battery> "514 km" </ECar.battery>
+  <ECar.chargerCard> "001" </ECar.chargerCard>
+  <ECar.chargerType> "Tesla Super Charge"</ECar.chargerType>
+</ECar>
+
+</car>
