@@ -1,0 +1,50 @@
+<!DOCTYPE reports [
+    <!ELEMENT reports (MaintenanceReport*, FeedbackReport*)>
+    
+    <!ELEMENT MaintenanceReport (reports.ReportDate, reports.ReportType, reports.Details)>
+    <!ELEMENT FeedbackReport (reports.ReportDate, reports.ReportType, reports.Details, FeedbackReport.rating, FeedbackReport.comment)>
+    
+    <!ATTLIST MaintenanceReport reportID CDATA #REQUIRED>
+    <!ATTLIST FeedbackReport reportID CDATA #REQUIRED>
+    
+    <!ELEMENT reports.ReportDate (#PCDATA)>
+    <!ELEMENT reports.ReportType (#PCDATA)>
+
+    <!ELEMENT FeedbackReport.rating (#PCDATA)>
+    <!ELEMENT FeedbackReport.comment (#PCDATA)>
+    
+    <!ELEMENT reports.Details (Description, CustomerID, BookingID, CarID)>
+    <!ATTLIST reports.Details status (Completed | Pending) #REQUIRED>
+    
+    <!ELEMENT Description (#PCDATA)>
+    <!ELEMENT CustomerID (#PCDATA)>
+    <!ELEMENT BookingID (#PCDATA)>
+    <!ELEMENT CarID (#PCDATA)>
+
+]>
+
+<reports>
+    <MaintenanceReport reportID="RPT001">
+        <reports.ReportDate>11-11-2024</reports.ReportDate>
+        <reports.ReportType>Maintenance</reports.ReportType>
+        <reports.Details status="Completed">
+            <Description>Maintenance report</Description>
+            <CustomerID>CUST123</CustomerID>
+            <BookingID>BOOK123</BookingID>
+            <CarID>CAR123</CarID>
+        </reports.Details>
+    </MaintenanceReport>
+
+    <FeedbackReport reportID="RPT002">
+        <reports.ReportDate>22-11-2024</reports.ReportDate>
+        <reports.ReportType>Feedback</reports.ReportType>
+        <reports.Details status="Pending">
+            <Description>Customer feedback report (comment)</Description>
+            <CustomerID>CUST123</CustomerID>
+            <BookingID>BOOK123</BookingID>
+            <CarID>CAR123</CarID>
+        </reports.Details>
+        <FeedbackReport.rating>Customer rating of service(5)</FeedbackReport.rating>
+        <FeedbackReport.comment>Great service!</FeedbackReport.comment>
+    </FeedbackReport>
+</reports>
