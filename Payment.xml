@@ -1,0 +1,36 @@
+<!ELEMENT class (attributes*, methods*)>
+<!ATTLIST class
+    name CDATA #REQUIRED
+>
+<!ELEMENT attributes (attribute+)>
+<!ELEMENT attribute EMPTY>
+<!ATTLIST attribute
+    name CDATA #REQUIRED
+    type CDATA #REQUIRED
+    visibility (public | private | protected) #REQUIRED
+>
+
+<!ELEMENT methods (method+)>
+<!ELEMENT method EMPTY>
+<!ATTLIST method
+    name CDATA #REQUIRED
+    visibility (public | private | protected) #REQUIRED
+    returnType CDATA #REQUIRED
+>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PAYEMENT SYSTEM "Payemnt.dtd">
+<class name="Payment">
+    <attributes>
+        <attribute name="paymentID" type="String" visibility="private"/>
+        <attribute name="bookingID" type="String" visibility="private"/>
+        <attribute name="carID" type="String" visibility="private"/>
+        <attribute name="date" type="String" visibility="private"/>
+        <attribute name="cost" type="Double" visibility="private"/>
+        <attribute name="paymentMethod" type="String" visibility="private"/>
+    </attributes>
+    <methods>
+        <method name="processPayment" visibility="public" returnType="boolean"/>
+        <method name="refundPayment" visibility="private" returnType="boolean"/>
+        <method name="viewPaymentDetails" visibility="private" returnType="void"/>
+    </methods>
+</class>
