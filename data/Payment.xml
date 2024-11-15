@@ -1,3 +1,4 @@
+<!DOCTYPE Payment[
 <!ELEMENT class (attributes*, methods*)>
 <!ATTLIST class
     name CDATA #REQUIRED
@@ -17,8 +18,7 @@
     visibility (public | private | protected) #REQUIRED
     returnType CDATA #REQUIRED
 >
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE PAYEMENT SYSTEM "Payemnt.dtd">
+]>
 <class name="Payment">
     <attributes>
         <attribute name="paymentID" type="String" visibility="private"/>
