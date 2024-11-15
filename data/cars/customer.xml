@@ -1,0 +1,39 @@
+<!DOCTYPE customer [
+   <!ELEMENT customer (Driver*)>
+
+   <!ELEMENT Driver (customer.name, customer.email, customer.password, customer.phone, customer.driversLicenseNumber, customer.driverAge, Driver.carKey)>
+
+   <!ATTLIST Driver CustomerID CDATA #REQUIRED>
+
+   <!ELEMENT customer.name (title?, firstname+, surname)>
+   <!ELEMENT title (#PCDATA)>
+   <!ELEMENT firstname (#PCDATA)>
+   <!ELEMENT surname (#PCDATA)>
+
+   <!ELEMENT customer.email (#PCDATA)>
+   <!ELEMENT customer.password (#PCDATA)>
+   <!ELEMENT customer.phone (#PCDATA)>
+   <!ELEMENT customer.driversLicenseNumber (#PCDATA)>
+   <!ELEMENT customer.driverAge (#PCDATA)>
+   <!ELEMENT Driver.carKey (#PCDATA)>
+
+]>
+
+<customer>
+   <Driver CustomerID = "U001">
+      <customer.name>
+         <firstname>Jared</firstname>
+         <firstname>Eoin</firstname>
+         <surname>Bande</surname>
+      </customer.name>
+
+      <customer.email>bandee@tcd.ie</customer.email>
+      <customer.password>password123</customer.password>
+      <customer.phone>+353123456789</customer.phone>
+      <customer.driversLicenseNumber>LN123</customer.driversLicenseNumber>
+      <customer.driverAge>21</customer.driverAge>
+      <Driver.carKey>key</Driver.carKey>
+   
+   </Driver>
+
+</customer>
