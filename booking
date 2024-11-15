@@ -1,0 +1,57 @@
+<!DOCTYPE booking [
+    <!ELEMENT booking (BookingReport*, NotificationReport*)>
+    
+    <!ELEMENT BookingReport (booking.ReportDate, booking.ReportType, booking.Details, BookingReport.StartTime, BookingReport.EndTime, BookingReport.Cost, BookingReport.Status)>
+    <!ELEMENT NotificationReport (booking.ReportDate, booking.ReportType, booking.Details, NotificationReport.Message, NotificationReport.Target)>
+
+    <!ATTLIST BookingReport reportID CDATA #REQUIRED>
+    <!ATTLIST NotificationReport reportID CDATA #REQUIRED>
+    <!ELEMENT booking.ReportDate (#PCDATA)>
+    <!ELEMENT booking.ReportType (#PCDATA)>
+
+    <!ELEMENT BookingReport.StartTime (#PCDATA)>
+    <!ELEMENT BookingReport.EndTime (#PCDATA)>
+    <!ELEMENT BookingReport.Cost (#PCDATA)>
+    <!ELEMENT BookingReport.Status (#PCDATA)>
+
+    <!ELEMENT NotificationReport.Message (#PCDATA)>
+    <!ELEMENT NotificationReport.Target (#PCDATA)>
+
+    <!ELEMENT booking.Details (Description, CustomerID, BookingID, CarID)>
+    <!ATTLIST booking.Details status (Completed | Pending) #REQUIRED>
+
+    <!ELEMENT Description (#PCDATA)>
+    <!ELEMENT CustomerID (#PCDATA)>
+    <!ELEMENT BookingID (#PCDATA)>
+    <!ELEMENT CarID (#PCDATA)>
+]>
+
+<booking>
+    <BookingReport reportID="BOOKREP001">
+        <booking.ReportDate>2024-11-15</booking.ReportDate>
+        <booking.ReportType>Booking</booking.ReportType>
+        <booking.Details status="Completed">
+            <Description>Details about the completed booking</Description>
+            <CustomerID>CUST001</CustomerID>
+            <BookingID>BOOK001</BookingID>
+            <CarID>CAR001</CarID>
+        </booking.Details>
+        <BookingReport.StartTime>2024-11-14T10:00</BookingReport.StartTime>
+        <BookingReport.EndTime>2024-11-14T15:00</BookingReport.EndTime>
+        <BookingReport.Cost>150.00</BookingReport.Cost>
+        <BookingReport.Status>Confirmed</BookingReport.Status>
+    </BookingReport>
+
+    <NotificationReport reportID="NOT001">
+        <booking.ReportDate>2024-11-15</booking.ReportDate>
+        <booking.ReportType>Notification</booking.ReportType>
+        <booking.Details status="Pending">
+            <Description>Notification message sent to customer</Description>
+            <CustomerID>CUST001</CustomerID>
+            <BookingID>BOOK001</BookingID>
+            <CarID>CAR001</CarID>
+        </booking.Details>
+        <NotificationReport.Message>Your booking has been confirmed.</NotificationReport.Message>
+        <NotificationReport.Target>Email</NotificationReport.Target>
+    </NotificationReport>
+</booking>
