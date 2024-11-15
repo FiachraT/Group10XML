@@ -1,4 +1,3 @@
-<!DOCTYPE Payment[
 <!ELEMENT class (attributes*, methods*)>
 <!ATTLIST class
     name CDATA #REQUIRED
@@ -18,7 +17,21 @@
     visibility (public | private | protected) #REQUIRED
     returnType CDATA #REQUIRED
 >
-]>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PAYEMENT SYSTEM "Payemnt.dtd">
+<Payment>
+    <Payment.paymentID>"1234"</paymentID>
+    <Payment.bookingID>"512"</bookingID>
+    <Payment.carID>"001"</carID>
+    <Payment.date>"01/01/25"</date>
+    <Payment.cost>"24.99"</cost>
+    <Payement.method>"Visa"</method>
+</Payment>
+
+
+
+
+
 <class name="Payment">
     <attributes>
         <attribute name="paymentID" type="String" visibility="private"/>
