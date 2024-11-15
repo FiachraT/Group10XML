@@ -1,0 +1,71 @@
+<!DOCTYPE reports [
+    <!ELEMENT reports (PaymentReport*, InvoiceReport*, NotificationReport*)>
+    
+    <!ELEMENT PaymentReport (reports.ReportDate, reports.ReportType, reports.Details, PaymentReport.Amount, PaymentReport.Method)>
+    <!ELEMENT InvoiceReport (reports.ReportDate, reports.ReportType, reports.Details, InvoiceReport.InvoiceID, InvoiceReport.TotalAmount)>
+    <!ELEMENT NotificationReport (reports.ReportDate, reports.ReportType, reports.Details, NotificationReport.Message, NotificationReport.Target)>
+
+    <!ATTLIST PaymentReport reportID CDATA #REQUIRED>
+    <!ATTLIST InvoiceReport reportID CDATA #REQUIRED>
+    <!ATTLIST NotificationReport reportID CDATA #REQUIRED>
+
+    <!ELEMENT reports.ReportDate (#PCDATA)>
+    <!ELEMENT reports.ReportType (#PCDATA)>
+    
+    <!ELEMENT PaymentReport.Amount (#PCDATA)>
+    <!ELEMENT PaymentReport.Method (#PCDATA)>
+
+    <!ELEMENT InvoiceReport.InvoiceID (#PCDATA)>
+    <!ELEMENT InvoiceReport.TotalAmount (#PCDATA)>
+    
+    <!ELEMENT NotificationReport.Message (#PCDATA)>
+    <!ELEMENT NotificationReport.Target (#PCDATA)>
+
+    <!ELEMENT reports.Details (Description, CustomerID, BookingID, CarID)>
+    <!ATTLIST reports.Details status (Completed | Pending) #REQUIRED>
+
+    <!ELEMENT Description (#PCDATA)>
+    <!ELEMENT CustomerID (#PCDATA)>
+    <!ELEMENT BookingID (#PCDATA)>
+    <!ELEMENT CarID (#PCDATA)>
+]>
+<reports>
+    <PaymentReport reportID="PAY001">
+        <reports.ReportDate>14-11-2024</reports.ReportDate>
+        <reports.ReportType>Payment</reports.ReportType>
+        <reports.Details status="Completed">
+            <Description>Payment processing for booking</Description>
+            <CustomerID>CUST001</CustomerID>
+            <BookingID>BOOK001</BookingID>
+            <CarID>CAR001</CarID>
+        </reports.Details>
+        <PaymentReport.Amount>150.00</PaymentReport.Amount>
+        <PaymentReport.Method>Credit Card</PaymentReport.Method>
+    </PaymentReport>
+
+    <InvoiceReport reportID="INV001">
+        <reports.ReportDate>14-11-2024</reports.ReportDate>
+        <reports.ReportType>Invoice</reports.ReportType>
+        <reports.Details status="Completed">
+            <Description>Invoice generated for booking</Description>
+            <CustomerID>CUST001</CustomerID>
+            <BookingID>BOOK001</BookingID>
+            <CarID>CAR001</CarID>
+        </reports.Details>
+        <InvoiceReport.InvoiceID>INV001</InvoiceReport.InvoiceID>
+        <InvoiceReport.TotalAmount>150.00</InvoiceReport.TotalAmount>
+    </InvoiceReport>
+
+    <NotificationReport reportID="NOT001">
+        <reports.ReportDate>14-11-2024</reports.ReportDate>
+        <reports.ReportType>Notification</reports.ReportType>
+        <reports.Details status="Pending">
+            <Description>Notification message sent to customer</Description>
+            <CustomerID>CUST001</CustomerID>
+            <BookingID>BOOK001</BookingID>
+            <CarID>CAR001</CarID>
+        </reports.Details>
+        <NotificationReport.Message>Your booking has been confirmed.</NotificationReport.Message>
+        <NotificationReport.Target>Email</NotificationReport.Target>
+    </NotificationReport>
+</reports>
