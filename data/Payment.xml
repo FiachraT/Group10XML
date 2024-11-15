@@ -10,13 +10,6 @@
     visibility (public | private | protected) #REQUIRED
 >
 
-<!ELEMENT methods (method+)>
-<!ELEMENT method EMPTY>
-<!ATTLIST method
-    name CDATA #REQUIRED
-    visibility (public | private | protected) #REQUIRED
-    returnType CDATA #REQUIRED
->
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE PAYEMENT SYSTEM "Payemnt.dtd">
 <Payment>
@@ -31,7 +24,13 @@
 
 
 
-
+<!ELEMENT methods (method+)>
+<!ELEMENT method EMPTY>
+<!ATTLIST method
+    name CDATA #REQUIRED
+    visibility (public | private | protected) #REQUIRED
+    returnType CDATA #REQUIRED
+>
 <class name="Payment">
     <attributes>
         <attribute name="paymentID" type="String" visibility="private"/>
